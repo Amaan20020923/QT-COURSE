@@ -24,7 +24,7 @@ a = qt.tensor(qt.qeye(N_c), qt.destroy(N_q))
 na = a.dag() * a
 
 # Time window
-tlist = np.linspace(0, 500, 3000)
+tlist = np.linspace(0, 100000, 3000)
 
 # Projector for the transmon excited state |n> probability
 P1_q = qt.tensor(qt.qeye(N_c), qt.basis(N_q, n) * qt.basis(N_q, n).dag())
@@ -33,11 +33,11 @@ P1_q = qt.tensor(qt.qeye(N_c), qt.basis(N_q, n) * qt.basis(N_q, n).dag())
 psi0 = qt.tensor(qt.basis(N_c, 0), qt.basis(N_q, n))
 
 # Parameters & Simulation Loop
-D = [1.0, 2.0, 3.0, 4.0, 5.0]  # Detunings (\Delta)
-wq = 6.0                       # Transmon frequency
-g = 0.05                       # Coupling strength
-alpha = -0.2                   # Transmon anharmonicity
-kappa = 1.0                    # Cavity line width
+D = [1.0, 2.0, 3.0, 4.0, 5.0]  # Detunings (\Delta) in GHz
+wq = 6.0                       # Transmon frequency in GHz
+g = 0.05                       # Coupling strength in GHz
+alpha = -0.2                   # Transmon anharmonicity in GHz
+kappa = 1.0                    # Cavity line width in GHz
 
 plt.figure(figsize=(10, 6))
 
@@ -61,11 +61,10 @@ for d_val in D:
     plt.plot(tlist, result.expect[0], label=r'$\Delta$ = {}'.format(d_val))
     
 # Plot Formatting
-plt.xlabel('Time ($\mu$s) ----------->')#, fontsize=12)
-plt.ylabel(r'Probability ----------->')#, fontsize=12)
+plt.xlabel('Time ($\mu$s) ----------->', fontsize=22)
+plt.ylabel(r'Probability ----------->', fontsize=22)
 plt.ylim(-0.05, 1.05)
-plt.title("Purcell protection to transmon due to cavity.")#,fontsize=14)
-plt.grid(True)#, linestyle='--', alpha=0.6)
-plt.legend()
-#plt.legend(fontsize=10,loc='best')
+plt.title("Purcell protection to transmon due to cavity.",fontsize=24)
+plt.grid(True)
+plt.legend(fontsize = 22)
 plt.show()
