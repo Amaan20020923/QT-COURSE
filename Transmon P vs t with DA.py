@@ -64,7 +64,7 @@ for d_val in D:
 plt.xlabel('Time ($\mu$s) ----------->', fontsize=22)
 plt.ylabel(r'Probability ----------->', fontsize=22)
 plt.ylim(-0.05, 1.05)
-plt.title("Purcell protection to transmon due to cavity.",fontsize=24)
+plt.title("Purcell protection to transmon due to cavity.",fontsize=22)
 plt.grid(True)
 plt.legend(fontsize = 22)
 plt.show()
