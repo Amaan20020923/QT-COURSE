@@ -61,7 +61,7 @@ for d_val in D:
     plt.plot(tlist, result.expect[0], label=r'$\Delta$ = {}'.format(d_val))
     
 # Plot Formatting
-plt.xlabel(r'Time ($10^{{-6}]s) ----------->', fontsize=22)
+plt.xlabel(r'Time ($10^{{-6}}$s) ----------->', fontsize=22)
 plt.ylabel(r'Probability ----------->', fontsize=22)
 plt.ylim(-0.05, 1.05)
 plt.title("Purcell protection to transmon due to cavity.",fontsize=22)
