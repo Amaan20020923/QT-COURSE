@@ -24,7 +24,7 @@ a = qt.tensor(qt.qeye(N_c), qt.destroy(N_q))
 na = a.dag() * a
 
 # Time window
-tlist = np.linspace(0, 100000, 3000)
+tlist = np.linspace(0, 100000, 3000) # In micro seconds
 
 # Projector for the transmon excited state |n> probability
 P1_q = qt.tensor(qt.qeye(N_c), qt.basis(N_q, n) * qt.basis(N_q, n).dag())
@@ -37,7 +37,7 @@ D = [1.0, 2.0, 3.0, 4.0, 5.0]  # Detunings (\Delta) in GHz
 wq = 6.0                       # Transmon frequency in GHz
 g = 0.05                       # Coupling strength in GHz
 alpha = -0.2                   # Transmon anharmonicity in GHz
-kappa = 1.0                    # Cavity line width in GHz
+kappa = 1.0                    # Cavity line width in MHz
 
 plt.figure(figsize=(10, 6))
 
