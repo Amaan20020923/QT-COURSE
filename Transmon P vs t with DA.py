@@ -24,7 +24,7 @@ a = qt.tensor(qt.qeye(N_c), qt.destroy(N_q))
 na = a.dag() * a
 
 # Time window
-tlist = np.linspace(0, 100000, 3000) # In micro seconds
+tlist = np.linspace(0, 100000, 3000) # In nano seconds
 
 # Projector for the transmon excited state |n> probability
 P1_q = qt.tensor(qt.qeye(N_c), qt.basis(N_q, n) * qt.basis(N_q, n).dag())
@@ -37,7 +37,7 @@ D = [1.0, 2.0, 3.0, 4.0, 5.0]  # Detunings (\Delta) in GHz
 wq = 6.0                       # Transmon frequency in GHz
 g = 0.05                       # Coupling strength in GHz
 alpha = -0.2                   # Transmon anharmonicity in GHz
-kappa = 1.0                    # Cavity line width in MHz
+kappa = 1.0                    # Cavity line width in GHz
 
 plt.figure(figsize=(10, 6))
 
@@ -61,7 +61,7 @@ for d_val in D:
     plt.plot(tlist, result.expect[0], label=r'$\Delta$ = {}'.format(d_val))
     
 # Plot Formatting
-plt.xlabel(r'Time ($10^{{-6}}$s) ----------->', fontsize=22)
+plt.xlabel(r'Time ($10^{{-9}}$s) ----------->', fontsize=22)
 plt.ylabel(r'Probability ----------->', fontsize=22)
 plt.ylim(-0.05, 1.05)
 plt.title("Purcell protection to transmon due to cavity.",fontsize=22)
