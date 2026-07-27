@@ -11,7 +11,7 @@ from qutip import destroy, create, mesolve, basis
 
 def solve_two_level_system():
     # Simulation Time
-    tlist = np.linspace(0, 100, 300) # In micro seconds
+    tlist = np.linspace(0, 100, 300) # In nano seconds
     n = int(input('Enter the initial state :- ')) 
     if n == 0 : 
         p0 = np.ones(len(tlist)) 
@@ -36,7 +36,7 @@ def solve_two_level_system():
         psi0 = basis(N, n)
 
         # Collapse Operators (Environment Interaction)
-        gamma = 0.1                   # Damping coefficient in MHz
+        gamma = 0.1                   # Damping coefficient in GHz
         c_ops = np.sqrt(gamma)*a      # Collapse operator 
 
         # Solve the Master Equation
@@ -53,7 +53,7 @@ def solve_two_level_system():
       
         plt.grid(True)
         plt.title('Time evolution of state probabilities of a harmonic oscillator at T = 0 K.',fontsize = 22)
-        plt.xlabel(f'Time ($10^{{-6}}$s)--------------->',fontsize=22)
+        plt.xlabel(f'Time ($10^{{-9}}$s)--------------->',fontsize=22)
         plt.ylabel('Probability --------------->',fontsize = 22)
         plt.ylim(-0.05, 1.05)
         plt.legend(fontsize = 22)
